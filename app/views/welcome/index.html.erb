@@ -1,0 +1,6 @@
+<%= form_with url: search_index_path, method: :get do |form| %>
+    <%= form.label :query, 'Pesquise pelo trecho: ' %>
+    <%= form.text_field :query %>
+    <%= form.submit 'Pesquisar' %>
+<% end %>
+
