@@ -7,11 +7,11 @@ class SearchController < ApplicationController
     gpt_response = @client.chat(
       parameters: {
         model: 'gpt-3.5-turbo-0301',
-        mesages: [{ role: 'user', content: 'Me diga olá!' }]
+        messages: [{ role: 'user', content: 'Me diga olá!' }]
       }
     )
 
-    @response = gpt_response
+    @response = gpt_response.dig("choices", 0, "message", "content")
   end
 
   private
