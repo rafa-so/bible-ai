@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'render/index'
+  get 'search/index'
 
-  root 'render#index'
+  root 'search#index'
 end
