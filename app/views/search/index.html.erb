@@ -1,9 +1,14 @@
-<table>
-    <% @response.each do |item| %>
-        <tr>
-            <td>
-                <%= item %>
-            </td>
-        </tr>
-    <% end %>
-<table>
+<div id="search-section">
+    <table>
+        <% @response.each do |item| %>
+            <tr>
+                <td>
+                    <%= item %>
+                </td>
+            </tr>
+        <% end %>
+    <table>
+</div>
+<div id="back">
+    <%= link_to "Início", root_path %>
+</div>
