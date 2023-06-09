@@ -1,1 +1,9 @@
-<%== @response %>
+<table>
+    <% @response.each do |item| %>
+        <tr>
+            <td>
+                <%= item %>
+            </td>
+        </tr>
+    <% end %>
+<table>

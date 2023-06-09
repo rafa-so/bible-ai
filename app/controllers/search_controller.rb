@@ -12,14 +12,25 @@ class SearchController < ApplicationController
         model: 'gpt-3.5-turbo-0301',
         messages: [{ role: 'user', content: query_string }]
       }
-    )
+    ).dig("choices", 0, "message", "content")
 
-    @response = gpt_response.dig("choices", 0, "message", "content")
+    @response = build_array_response gpt_response
   end
 
   private
 
   def set_client
     @client = OpenAI::Client.new
+  end
+
+  def build_array_response text
+    fragment = Nokogiri::HTML5.fragment(text)
+    search_elements fragment
+  end
+
+  def search_elements fragment
+    fragment.search('li')
+      .to_a
+      .map{ |element| p element.content.tr("“", "").tr("”", "") }
   end
 end
