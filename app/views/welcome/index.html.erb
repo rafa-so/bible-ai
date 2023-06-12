@@ -1,13 +1,18 @@
-<%= form_with url: search_index_path, method: :get do |form| %>
-    <%= form.label :query, 'Pesquise pelo trecho: ' %>
-    <%= form.text_field :query %>
-    <%= form.submit 'Pesquisar' %>
-<% end %>
+<div class="container">
+    <div class="search-section">
+        <%= form_with url: search_index_path, method: :get, class: 'search-form' do |form| %>
+            <%= form.label :query, 'Pesquise pelo trecho: ' %>
+            <%= form.text_field :query, placeholder: 'Ex: Nínive' %>
+            <%= form.submit 'Pesquisar' %>
+        <% end %>
+    </div>
 
-<p>
-    Este projeto tem como objetivo listar referências bíblicas de trechos informados no formulário.
-</p>
-<p>
-    Inicialmente informe o trecho que queria pesquisar, e logo em seguida serão listatas referências, assim como seus respectivos conteúdos, de trechos da bíblia que os contém.
-</p>
-
+    <div class="info">
+        <p>
+            Este projeto tem como objetivo listar referências bíblicas de trechos informados no formulário.
+        </p>
+        <p>
+            Inicialmente informe o trecho que queria pesquisar, e logo em seguida serão listatas referências, assim como seus respectivos conteúdos, de trechos da bíblia que os contém.
+        </p>
+    </div>
+</div>
