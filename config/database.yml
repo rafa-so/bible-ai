@@ -14,6 +14,10 @@ development:
 
 test:
   <<: *default
+  username: postgres
+  password: <%= ENV["PASSWORD"] %>
+  host: <%= ENV["HOST"] %>
+  port: 5432
   database: bible_ia_test
 
 production:
