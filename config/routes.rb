@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :princing, only: :index
   resources :about, only: :index
+  resources :contact, only: :index
 end
