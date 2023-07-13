@@ -4,16 +4,17 @@ class SearchController < ApplicationController
   def index
     search_param = params['query']
 
-    query_string = "Retorne todos os versículos com o termo: #{search_param}.
-      Os versículos deverão estar separados por tags html de lista desordetada"
+    query_string = "Retorne todos os versículos com o termo: #{search_param}. Os versículos deverão estar separados por tags html de lista desordetada"
 
     if ENV['OPENAI_ACCESS_TOKEN'].present?
-      gpt_response = @client.chat(
+      response = @client.chat(
         parameters: {
-          model: 'gpt-3.5-turbo-0301',
+          model: ENV["OPENAI_CURRENT_MODEL"],
           messages: [{ role: 'user', content: query_string }]
         }
-      ).dig("choices", 0, "message", "content")
+      )
+
+      gpt_response = response.dig("choices", 0, "message", "content")
     else
       gpt_response = "
         <ul>
