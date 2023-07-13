@@ -73,3 +73,9 @@ header {
 #search-button {
     width: 10vw;
 }
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
