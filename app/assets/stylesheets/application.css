@@ -44,14 +44,38 @@ p, h1, h2, h3, h4, h5, h6 {
     isolation: isolate;
 }
 
+header {
+    width: 100vw;
+    height: 5vw;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 80vh;
 }
 
+.search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 7rem;
+}
 
-.search-section {
-    width: 30vw;
+#search-field {
+    width: 50vw;
+}
+
+#search-button {
+    width: 10vw;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
 }
