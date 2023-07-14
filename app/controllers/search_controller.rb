@@ -4,9 +4,9 @@ class SearchController < ApplicationController
   def index
     search_param = params['query']
 
-    query_string = "Retorne todos os versículos com o termo: #{search_param}. Os versículos deverão estar separados por tags html de lista desordetada"
+    query_string = "Retorne todos os versículos possíveis com o termo: #{search_param}. Os versículos deverão estar separados por tags html de lista desordetada"
 
-    if ENV['OPENAI_ACCESS_TOKEN'].present? && !ENV["TEST"]
+    if has_envs?
       response = @client.chat(
         parameters: {
           model: ENV["OPENAI_CURRENT_MODEL"],
@@ -43,5 +43,9 @@ class SearchController < ApplicationController
     fragment.search('li')
       .to_a
       .map{ |element| p element.content.tr("“", "").tr("”", "") }
+  end
+
+  def has_envs?
+    ENV['OPENAI_ACCESS_TOKEN'].present? && ENV["TEST"]
   end
 end
