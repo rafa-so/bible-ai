@@ -6,7 +6,7 @@ class SearchController < ApplicationController
 
     query_string = "Retorne todos os versículos com o termo: #{search_param}. Os versículos deverão estar separados por tags html de lista desordetada"
 
-    if ENV['OPENAI_ACCESS_TOKEN'].present?
+    if ENV['OPENAI_ACCESS_TOKEN'].present? && !ENV["TEST"]
       response = @client.chat(
         parameters: {
           model: ENV["OPENAI_CURRENT_MODEL"],
