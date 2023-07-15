@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem "ruby-openai"
+gem 'http', '~> 3.0'
+gem 'awesome_print', '~> 1.8'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

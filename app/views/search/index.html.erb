@@ -3,7 +3,7 @@
         <% @response.each do |item| %>
             <tr>
                 <td>
-                    <%= item %>
+                    <%= sanitize_response(item) %>
                 </td>
             </tr>
         <% end %>
