@@ -26,6 +26,9 @@
       <%= link_to "Início", root_path %>
       <%= link_to "Planos", princing_index_path %>
       <%= link_to "Sobre", about_index_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Deslogar", destroy_user_session_path %>
+      <% end %>
     </header>
 
     <%= yield %>
