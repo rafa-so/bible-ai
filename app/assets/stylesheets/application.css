@@ -56,6 +56,7 @@ header {
     align-items: center;
     width: 100vw;
     height: 80vh;
+    overflow-y: scroll;
 }
 
 .search-form {
