@@ -3,21 +3,16 @@ class SearchController < ApplicationController
 
   ## GET /search/index
   def index
-    content = ""
-    result = HTTP.post("#{ENV['BIBLIA_DIGITAL_BASE_URL']}/verses/search",
-      json: {
-        version: "nvi",
-        search: params[:query]
-      }).body
-    result.each { |chunk| content << chunk }
+    conn = Faraday.new(
+      url: ENV['BIBLIA_DIGITAL_BASE_URL'],
+      headers: {'Content-Type' => 'application/json'}
+    )
 
-    @response = JSON.parse(content).dig("verses").map do | verse |
-      {
-        book_name: verse.dig("book", "name"),
-        chapter: verse["chapter"],
-        number: verse["number"],
-        text: verse["text"]
-      }
+    result = conn.post("verses/search") do |req|
+      req.headers["Authorization"] = "Bearer #{ENV['BIBLIA_DIGITAL_TOKEN']}"
+      req.body = { version: 'nvi', search: params[:query] }.to_json
     end
+
+    @response = JSON.parse(result.body).dig("verses")
   end
 end

@@ -44,7 +44,6 @@ gem "bootsnap", require: false
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem "ruby-openai"
-gem 'http', '~> 3.0'
 gem 'awesome_print', '~> 1.8'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
@@ -72,3 +71,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "faraday", "~> 2.7"
