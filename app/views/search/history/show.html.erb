@@ -1,0 +1,12 @@
+<div class="container">
+    Termo: <%= @response.term %>
+    <table class="search-response">
+        <% @response.content.each do |item| %>
+            <tr>
+                <td>
+                    <%= sanitize_response(item) %>
+                </td>
+            </tr>
+        <% end %>
+    <table>
+</div>

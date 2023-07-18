@@ -6,7 +6,7 @@
             <% @history.each do |item| %>
                 <tr>
                     <td>
-                        <%= item %>
+                        <%= link_to item.term, history_url(item.id) %>
                     </td>
                 </tr>
             <% end %>

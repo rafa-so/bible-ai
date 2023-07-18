@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :search, only: :index
-  resources :history, only: :index, module: :search
+  resources :history, only: [:index, :show], module: :search
 
   resources :princing, only: :index
   resources :about, only: :index
