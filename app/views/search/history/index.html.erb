@@ -1,0 +1,15 @@
+<div class="container">
+    <% if @history.empty? %>
+        <p> Não existe histórico ainda </p>
+    <% else  %>
+        <table class="search-response">
+            <% @history.each do |item| %>
+                <tr>
+                    <td>
+                        <%= item %>
+                    </td>
+                </tr>
+            <% end %>
+        <table>
+    <% end %>
+</div>

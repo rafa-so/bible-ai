@@ -1,6 +1,10 @@
 <div class="container">
+    <% if @response.dig(:verses).empty? %>
+        <p> Não foi possível achar resultado para esta pesquisa! </p>
+    <% end  %>
+
     <table class="search-response">
-        <% @response.each do |item| %>
+        <% @response.dig(:verses).each do |item| %>
             <tr>
                 <td>
                     <%= sanitize_response(item) %>

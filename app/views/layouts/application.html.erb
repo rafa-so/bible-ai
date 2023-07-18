@@ -24,9 +24,14 @@
 
     <header>
       <%= link_to "Início", root_path %>
-      <%= link_to "Planos", princing_index_path %>
-      <%= link_to "Sobre", about_index_path %>
+
+      <% unless user_signed_in? %>
+        <%= link_to "Planos", princing_index_path %>
+        <%= link_to "Sobre", about_index_path %>
+      <% end %>
+
       <% if user_signed_in? %>
+        <%= link_to "Histórico", history_index_path %>
         <%= link_to "Deslogar", destroy_user_session_path %>
       <% end %>
     </header>

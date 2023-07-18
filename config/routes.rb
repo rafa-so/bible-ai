@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'search/index'
-
   root 'welcome#index'
+
+  resources :search, only: :index
+  resources :history, only: :index, module: :search
 
   resources :princing, only: :index
   resources :about, only: :index
