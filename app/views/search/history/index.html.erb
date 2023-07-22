@@ -1,15 +1,24 @@
 <div class="container">
-    <% if @history.empty? %>
-        <p> Não existe histórico ainda </p>
-    <% else  %>
-        <table class="search-response">
-            <% @history.each do |item| %>
-                <tr>
-                    <td>
-                        <%= link_to item.term, history_url(item.id) %>
-                    </td>
-                </tr>
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+            <% if @history.empty? %>
+                <p> Não existe histórico ainda </p>
+            <% else  %>
+                <table class="table table-bordered pt-5">
+                    <thead>
+                            <tr>
+                                <td class="text-center">Termos</td>
+                            </tr>
+                    </thead>
+                    <% @history.each do |item| %>
+                        <tr>
+                            <td class="text-center">
+                                <%= link_to item.term, history_url(item.id) %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <table>
             <% end %>
-        <table>
-    <% end %>
+        </div>
+    </div>
 </div>

@@ -73,3 +73,5 @@ group :test do
 end
 
 gem "faraday", "~> 2.7"
+gem 'bootstrap', '~> 5.2.3'
+gem 'jquery-rails', '~> 4.4'
