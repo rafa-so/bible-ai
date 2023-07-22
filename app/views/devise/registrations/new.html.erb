@@ -1,39 +1,46 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row flex justify-content-center align-items-center container-h-80">
+    <div class="col-5">
+      <h2 class="m-3">Cadastro</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="field m-3">
+          <%= f.label :email , class: "form-label" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="field m-3">
+          <%= f.label :senha,  class: "form-label" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="field m-3">
+          <%= f.label "Confirmação de senha", class: "form-label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :church %><br />
-    <%= f.text_field :church, autocomplete: "church" %>
-  </div>
+        <div class="field m-3">
+          <%= f.label "igreja", class: "form-label" %><br />
+          <%= f.text_field :church, autocomplete: "church", class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :ministery %><br />
-    <%= f.text_field :ministery, autocomplete: "ministery" %>
-  </div>
+        <div class="field m-3">
+          <%= f.label "Ministério", class: "form-label" %><br />
+          <%= f.text_field :ministery, autocomplete: "ministery", class: "form-control" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="actions m-3">
+          <%= f.submit "Cadastrar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
 
 <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>

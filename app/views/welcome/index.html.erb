@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="search-container d-flex justify-content-center align-items-center">
+            <div class="container-h-80 d-flex justify-content-center align-items-center">
                 <%= form_with url: search_index_path, method: :get, class: "search-form" do |form| %>
                     <div class="input-group">
                         <%= form.text_field :query, placeholder: 'Ex: Nínive', class: "form-control input-search" %>
